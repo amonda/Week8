@@ -5,7 +5,7 @@ date: "March 1, 2017"
 output: html_document
 ---
 
-Today we are going to go through a few topics. We are going to start with interactive data graphics, and we will talk about making Shiny apps in R. We will also talk about dealing with text data. If there is time, we will talk some about analyzing microbiome data.
+Today we are going to go through a few topics. We are going to start with interactive data graphics, and we will talk about making Shiny apps in R. We will also talk about dealing with text data. If there is time, we will talk some about analyzing microbiome data. I'm adding this file to make it able to commit.
 
 ## Interactive Data Graphics
 
