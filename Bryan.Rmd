@@ -13,7 +13,7 @@ library(psych)
 
 ## R Markdown
 
-```{r cars}
+```{r cars, include=FALSE}
 library(readxl)
 Barriers <- read_excel("~/Downloads/Barriers.xlsx")
 View(Barriers)
@@ -26,10 +26,9 @@ round(colMeans(Barriers, na.rm = T), 2)
 ```
 
 
-
 ```{r}
 #Item discrimination 
-discrim(Barriers[,3:15])
+discrim(Barriers[,3:15]) 
 
 ```
 
@@ -37,5 +36,19 @@ discrim(Barriers[,3:15])
 ```{r}
 #Cronbach's Alpha
 alpha(Barriers[,3:15])
+
+#side effects construct
+
+# subset
+df<- Barriers[,c("bq13_1","bq13_3", "bq13_7", "bq13_10", "bq13_12", "bq13_13")]
+
+alpha(df)
+
+
+#pain management construct
+df2<- Barriers[,c("bq13_2","bq13_4", "bq13_5", "bq13_6", "bq13_8", "bq13_9", "bq13_11")]
+
+alpha(df2)
+
 ```
 
