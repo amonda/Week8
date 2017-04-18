@@ -1,0 +1,41 @@
+---
+title: "Untitled"
+author: "Alyssa Monda"
+date: "4/17/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(psych)
+
+```
+
+## R Markdown
+
+```{r cars}
+library(readxl)
+Barriers <- read_excel("~/Downloads/Barriers.xlsx")
+View(Barriers)
+```
+
+```{r}
+#Item Difficulty-- item difficulty is simply the mean score for an item
+round(colMeans(Barriers, na.rm = T), 2)
+
+```
+
+
+
+```{r}
+#Item discrimination 
+discrim(Barriers[,3:15])
+
+```
+
+
+```{r}
+#Cronbach's Alpha
+alpha(Barriers[,3:15])
+```
+

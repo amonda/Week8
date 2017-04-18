@@ -173,6 +173,7 @@ The `grep()` function is what you use when you want to use R to find a needle in
 ophelia_lines <- grep(" Oph. ", hamlet)
 length(ophelia_lines)
 head(ophelia_lines)
+#w/o value=true it does not tell you what the lines say just where they are 
 ```
 
 The function `grepl()` uses the same syntax but returns instead a logical vector as long as the haystack. For example,
@@ -182,6 +183,7 @@ The function `grepl()` uses the same syntax but returns instead a logical vector
 #illustrate differences between grep and grepl
 length(grep("  Ham. ", hamlet))
 length(grepl("  Ham. ", hamlet))
+#grep tells you ham appears 358 times, grepl tells you 0 or 1 for each variable its there or not 
 ```
 
 To extract the piece of each matching line that actually matched, use the `str_extract()` function from the `stringr` package.
@@ -212,7 +214,7 @@ length(hamlet_lines)
 hamlet_lines <- grep("  Ham. ", hamlet, value = TRUE)
 length(hamlet_lines)
 
-hamlet_lines <- grep("  Ham\\.", hamlet, value = TRUE)
+hamlet_lines <- grep("  Ham\\.", hamlet, value = TRUE) #\\ treats . as a . instead of a metacharacter 
 length(hamlet_lines)
 
 ```
@@ -223,7 +225,7 @@ length(hamlet_lines)
 
 # Example os use of character sets
 
-head(grep("H[b-z]", hamlet, value = TRUE))
+head(grep("H[b-z]", hamlet, value = TRUE)) #says I want H and anything besides a
 ```
 
 This notation will result in each occurrence of H followed by any small letter except "a".
@@ -234,7 +236,7 @@ This notation will result in each occurrence of H followed by any small letter e
 
 # Example of alternation
 
-head(grep("  H(a|o)", hamlet, value = TRUE))
+head(grep("  H(a|o)", hamlet, value = TRUE)) #find anything starting with Ha or Ho
 
 ```
 
@@ -245,7 +247,7 @@ So you see that using the `  H(a|o)` alternation allows us to pick up any lines 
 ```{r}
 
 # Example of anchor at the beginning
-head(grep("^  H[b-z]", hamlet, value = TRUE))
+head(grep("^  H[b-z]", hamlet, value = TRUE)) #^anchors to beginning so you find where he speaks not just where he is mentioned $anchors to the end
 
 ```
 
@@ -304,7 +306,7 @@ length(Claudius)
 length(Horatio)
 length(Fortinbras)
 
-sum(Hamlet)
+sum(Hamlet) #gives you number of times they actually speak
 sum(Ophelia)
 sum(Polonius)
 sum(Gertrude)
@@ -375,7 +377,7 @@ tables <- url %>%
 tables
 songs <- html_table(tables[[1]])
 glimpse(songs)
-
+y
 
 ```
 
